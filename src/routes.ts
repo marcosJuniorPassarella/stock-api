@@ -8,6 +8,7 @@ import { CreateProductController } from "./controllers/product/CreateProductCont
 import { CreateCategoryController } from "./controllers/category/CreateCategoryController";
 import { EditCategoryController } from "./controllers/category/EditCategoryController";
 import { ListCategoriesController } from "./controllers/category/ListCategoriesController";
+import { DeleteCategoryController } from "./controllers/category/DeleteCategoryController";
 
 const router = Router();
 
@@ -30,6 +31,11 @@ router.get(
   "/categories",
   isAuthenticated,
   new ListCategoriesController().handle
+);
+router.delete(
+  "/category/delete",
+  isAuthenticated,
+  new DeleteCategoryController().handle
 );
 
 /* PRODUCT */
