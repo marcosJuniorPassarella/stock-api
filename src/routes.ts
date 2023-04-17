@@ -9,6 +9,7 @@ import { CreateCategoryController } from "./controllers/category/CreateCategoryC
 import { EditCategoryController } from "./controllers/category/EditCategoryController";
 import { ListCategoriesController } from "./controllers/category/ListCategoriesController";
 import { DeleteCategoryController } from "./controllers/category/DeleteCategoryController";
+import { EditProductController } from "./controllers/product/EditProductController";
 
 const router = Router();
 
@@ -40,4 +41,10 @@ router.delete(
 
 /* PRODUCT */
 router.post("/product", isAuthenticated, new CreateProductController().handle);
+router.put(
+  "/product/edit",
+  isAuthenticated,
+  new EditProductController().handle
+);
+
 export { router };
