@@ -7,6 +7,7 @@ import { isAuthenticated } from "./middlewares/isAuthenticated";
 import { CreateProductController } from "./controllers/product/CreateProductController";
 import { CreateCategoryController } from "./controllers/category/CreateCategoryController";
 import { EditCategoryController } from "./controllers/category/EditCategoryController";
+import { ListCategoriesController } from "./controllers/category/ListCategoriesController";
 
 const router = Router();
 
@@ -24,6 +25,11 @@ router.put(
   "/category/edit",
   isAuthenticated,
   new EditCategoryController().handle
+);
+router.get(
+  "/categories",
+  isAuthenticated,
+  new ListCategoriesController().handle
 );
 
 /* PRODUCT */
