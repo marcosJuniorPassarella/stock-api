@@ -10,6 +10,7 @@ import { EditCategoryController } from "./controllers/category/EditCategoryContr
 import { ListCategoriesController } from "./controllers/category/ListCategoriesController";
 import { DeleteCategoryController } from "./controllers/category/DeleteCategoryController";
 import { EditProductController } from "./controllers/product/EditProductController";
+import { ListProductsController } from "./controllers/product/ListProductsController";
 
 const router = Router();
 
@@ -46,5 +47,6 @@ router.put(
   isAuthenticated,
   new EditProductController().handle
 );
+router.get("/products", isAuthenticated, new ListProductsController().handle);
 
 export { router };
