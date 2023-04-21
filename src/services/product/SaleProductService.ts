@@ -13,7 +13,7 @@ class SaleProductService {
       },
     });
 
-    if (queryProduct?.amount > amount && amount > 0) {
+    if (queryProduct?.amount >= amount && amount > 0) {
       const newAmount = queryProduct?.amount - amount;
       const saveSale = await prismaClient.product.update({
         where: {
