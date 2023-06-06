@@ -4,8 +4,14 @@ import { EditProductRequest } from "../../models/interfaces/product/EditProductR
 
 class EditProductController {
   async handle(request: Request, response: Response) {
-    const { name, price, description, product_id, amount }: EditProductRequest =
-      request.body as unknown as EditProductRequest;
+    const {
+      name,
+      price,
+      description,
+      product_id,
+      amount,
+      category_id,
+    }: EditProductRequest = request.body as unknown as EditProductRequest;
     const editProductService = new EditProductService();
 
     const productEdited = editProductService.execute({
@@ -14,6 +20,7 @@ class EditProductController {
       description,
       price,
       product_id,
+      category_id,
     });
     return response.json(productEdited);
   }

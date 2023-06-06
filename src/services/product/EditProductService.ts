@@ -8,6 +8,7 @@ class EditProductService {
     description,
     price,
     product_id,
+    category_id,
   }: EditProductRequest) {
     const productExists = await prismaClient.product.findFirst({
       where: {
@@ -28,6 +29,7 @@ class EditProductService {
         amount: +amount,
         description: description,
         price: price,
+        category_id: category_id,
       },
     });
     return productEdited;
