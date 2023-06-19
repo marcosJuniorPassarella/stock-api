@@ -29,7 +29,7 @@ class EditProductService {
         amount: +amount,
         description: description,
         price: price,
-        category_id: category_id,
+        category_id: category_id
       },
     });
     return productEdited;
